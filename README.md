@@ -87,3 +87,24 @@ src/
 - 首版为**纯本地存储**，不含登录与云同步
 - 适配手机优先 Web 体验，桌面端可用但非主要优化目标
 - 当前未接入 PWA 离线缓存插件（可后续补齐）
+
+## GitHub Pages 部署
+
+项目已内置 GitHub Actions 工作流：`.github/workflows/deploy-pages.yml`。
+
+### 一次性设置
+
+1. 把仓库默认分支设为 `main`
+2. 在 GitHub 仓库页面进入 `Settings` -> `Pages`
+3. `Build and deployment` 的 `Source` 选择 `GitHub Actions`
+
+### 触发部署
+
+- 推送到 `main` 分支会自动部署
+- 也可以在 `Actions` 页面手动运行 `Deploy to GitHub Pages`
+
+### 访问地址
+
+- 部署成功后访问：`https://<你的用户名>.github.io/<仓库名>/`
+
+说明：工作流会在构建时自动设置 `VITE_BASE_PATH=/<仓库名>/`，无需手动改 `vite.config.ts`。
